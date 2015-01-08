@@ -1,0 +1,154 @@
+{{template "header"}}
+      <title>{{.Information.Username}}- 社区党员信息管理系统</title>
+    </head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        {{template "navbar" .}}
+      </div>  
+    </div>
+
+
+<div class="container">
+    <div class="row">
+            <div class="col-md-2">  
+      <h3><a href="/information">信息管理</a></h3>
+
+     <h4><a href="/category">党员类别</a></h4>
+    </div>
+    <div class="col-md-10">
+
+    <h2 class="page-header">浏览信息</h2>
+  <form method="post" action="/information/"  enctype="multipart/form-data">
+<input type="hidden" name="uid" value="{{.Uid}}">
+
+    <div class="form-group">    
+    <label>姓名</label>
+    <input type="text" name="username" class="" value="{{.User.Username}}"disabled>
+  </div>
+
+    <div class="form-group">   
+       <label>性别</label>
+    <input type="text" name="sex" class="" value="{{.User.Sex}}"disabled>
+  </div>
+
+      <div class="form-group">   
+       <label>身份</label>
+      <input name="identity"  class="form-group" value="{{.User.Identity}}"disabled> 
+    </div>
+
+    <div class="form-group">   
+    <label>籍贯</label>
+    <input type="text" name="native" class=""value="{{.User.Native}}"disabled> 
+  </div>
+
+
+    <div class="form-group">           
+    <label>民族</label>
+    <input type="text" name="nation" class="" value="{{.User.Nation}}"disabled>
+    </div>
+
+    <div class="form-group">   
+    <label>身份证号</label>
+    <input type="text" name="number" class="" value="{{.User.Number}}"disabled>
+  </div>
+
+    <div class="form-group">   
+       <label>学历</label>
+         <input type="text" name="education" class="" value="{{.User.Education}}"disabled>
+  </div>
+
+      <div class="form-group">                      
+      <label>联系电话</label>
+      <input type="text" name="phone" class="" value="{{.User.Phone}}"disabled>
+    </div>
+    
+        <div class="form-group">                      
+      <label>邮箱</label>
+      <input type="email" name="email" class="" value="{{.User.Email}}"disabled>
+    </div>
+
+    <div class="form-group">   
+      <label>家庭住址</label>
+      <input type="text" name="address" class="" value="{{.User.Address}}"disabled>
+    </div>
+
+    <div class="form-group">   
+      <label>户口所在地</label>
+      <input type="text" name="resident" class="" value="{{.User.Resident}}"disabled>
+    </div>
+
+        <div class="form-group">   
+    <label>出生日期</label>
+    <input type="text" name="birthday" class="" value="{{.User.Birthday}}"disabled>
+  </div>
+       <div class="form-group">      
+      <label>入党时间</label>
+      <input type="text" name="jointime" class="" value="{{.User.Jointime}}"disabled>
+    </div>
+
+    <div class="form-group">              
+      <label>原工作单位</label>
+      <input type="text" name="company" class="" value="{{.User.Company}}"disabled>
+    </div>
+
+    <div class="form-group">                      
+      <label>党内职务</label>
+      <input type="text" name="position" class="" value="{{.User.Position}}"disabled>
+    </div>
+
+    <div class="form-group">   
+      <label>隶属党小组</label>
+      <input type="text" name="group" class="" value="{{.User.Group}}"disabled>
+    </div>
+
+    <div class="form-group">                
+      <label>隶属党支部</label>
+      <input type="text" name="branch" class="" value="{{.User.Branch}}"disabled>
+    </div>
+
+        <div class="form-group">   
+       <label>党员类别</label>
+       <input name="category" class="" value="{{.User.Category}}"disabled>
+  </div>
+
+    <div class="form-group">       
+     <label>培养联系人</label>
+      <input type="text" name="linkman" class="" value="{{.User.Linkman}}"disabled>
+    </div>
+
+    <div class="form-group">        
+      <label>入党介绍人</label>
+     <input type="text" name="introducer" class="" value="{{.User.Introducer}}"disabled>
+    </div>
+
+    <div class="form-group">         
+     <label>有何特长</label>
+    <input type="text" name="feature" class="" value="{{.User.Feature}}"disabled>
+    </div>
+
+    <div class="form-group">              
+    <label>备注</label>
+   <textarea  name="comment" cols="30" rows="10" class="form-control" disabled>{{.User.Comment}}</textarea>
+    </div>
+
+    <div class="form-group">       
+     <label>照片(<a href="/photo/{{.User.Photo}}">{{.User.Photo}}</a>)</label>
+     <input type="file" name="photo" class="" disabled>
+    </div>
+
+    <button type="submit" class="btn btn-default">返回</button>
+  </form>
+    </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+</body>
+</html>
+
+
+

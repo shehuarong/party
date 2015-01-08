@@ -1,0 +1,141 @@
+{{template "header"}}
+    	<title>党员信息 - 社区党员信息管理系统</title>
+  	</head>
+	
+	<body>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				{{template "navbar" .}}
+			</div>	
+		</div>
+
+
+		<div class="container">
+		<div class="row">
+		<div class="col-md-2">	
+			<!-- <ul class="nav nav-pills nav-stacked" role="tablist"> -->
+			<!-- <h3>党员信息管理</h3>
+			<ul>
+				<li><a href="/information/add">党员信息录入</a></li>		
+			</ul>
+
+			
+			<h4><a href="/category.html">党员类别</a></h4>
+
+			<ul>
+				{{range.Categories}}
+				<li><a href="/?cate={{.Title}}">{{.Title}}</a></li>
+				{{end}}
+			</ul>
+		
+
+	
+			<h3>非正式党员信息管理</h3>
+			<ul>
+				{{range .Users}}
+				<li><a href="/?idty={{.Identity}}">{{.Identity}}</a></li>
+				{{end}}
+				
+			</ul>
+	 -->
+	 <h3>信息管理</h3>
+<!-- 	 	<h4>群众</h4>
+	 	 <h4>申请人</h4>
+	 	 <h4>入党积极分子</h4>
+	 	 <h4>发展对象</h4>
+	 	 <h4>预备党员</h4>
+	 	 <h4>党员</h4> -->
+	 	 
+	 	 <h4><a href="/category">党员类别</a></h4>
+
+<!-- 			<ul>
+				{{range.Categories}}
+				<li><a href="/information?cate={{.Title}}">{{.Title}}</a></li>
+				{{end}}
+			</ul> -->
+		</div>
+
+		<div class="col-md-10">
+	<h2 class="page-header">党员信息列表</h2>
+	
+	        
+       <label>项目</label>
+      <select  name="options"  class="form-group">
+      <option></option>
+      <option value="Username">姓名</option>
+      <option>性别</option>
+      <option>民族</option>
+      <option>学历</option>
+      <option>身份</option>
+      <option>党员类别</option>      
+      <option>党内职务</option>
+      <option>隶属党支部</option>
+      <option>隶属党小组</option>
+      <option>户口所在地</option>
+      <option>原工作单位</option>
+      <option>家庭住址</option>
+      <!--       <option>是否流入</option>
+      <option>是否流出</option> -->
+    </select>
+
+	<label>查找</label>
+	<input type="text" name="values">
+
+	<button>查询</button>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>昵称</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>民族</th>
+				<th>学历</th>
+				<th>身份</th>
+				<th>党员类别</th>
+				<th>党内职务</th>
+				<th>隶属党支部</th>
+				<th>隶属党小组</th>
+				<th>户口所在地</th>
+				<th>原工作单位</th>
+				<th>家庭住址</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		{{range .Users}}
+			<tr>
+				<td>{{.Id}}</td>
+				<td><a href="/information/view/{{.Id}}">{{.Nickname}}</a></td>
+				<td><a href="/information/view/{{.Id}}">{{.Username}}</a></td>
+				<td>{{.Sex}}</td>
+				<td>{{.Nation}}</td>
+				<td>{{.Education}}</td>
+				<td>{{.Identity}}</td>
+				<td>{{.Category}}</td>
+				<td>{{.Position}}</td>
+				<td>{{.Branch}}</td>
+				<td>{{.Group}}</td>
+				<td>{{.Resident}}</td>
+				<td>{{.Company}}</td>
+				<td>{{.Address}}</td>
+				<td>
+				<a href="/information/add?uid={{.Id}}">添加</a>
+				<a href="/information/modify?uid={{.Id}}">修改</a>
+				<a href="/information/delete?uid={{.Id}}">删除</a></td>
+			</tr>
+			{{end}}
+		</tbody>
+	</table>
+
+		</div>
+		</div>
+		</div>
+
+
+		
+		<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,200 @@
+{{template "header"}}
+      <title>修改信息 - 社区党员信息管理系统</title>
+    </head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        {{template "navbar" .}}
+      </div>  
+    </div>
+
+
+<div class="container">
+    <div class="row">
+            <div class="col-md-2">  
+      <h3><a href="/information">信息管理</a></h3>
+
+     <h4><a href="/category">党员类别</a></h4>
+    </div>
+    <div class="col-md-10">
+
+    <h2 class="page-header">完善信息</h2>
+  <form method="post" action="/information/"  enctype="multipart/form-data">
+<input type="hidden" name="uid" value="{{.Uid}}">
+
+      <div class="form-group">    
+    <label>昵称</label>
+    <input type="text" name="nickname" class="" value="{{.User.Nickname}}" disabled>
+  </div>
+
+    <div class="form-group">    
+    <label>姓名</label>
+    <input type="text" name="username" class="" value="{{.User.Username}}">
+  </div>
+
+             <div class="form-group">   
+       <label>性别</label>
+      <select  name="sex"  class="form-group" value="{{.User.Sex}}">
+      <option></option>
+      <option>男</option>
+      <option>女</option>
+          </select>
+  </div>
+
+
+
+      <div class="form-group">   
+       <label>身份</label>
+      <select  name="identity"  class="form-group" value="{{.User.Identity}}">
+      <option></option>
+      <option>群众</option>
+      <option>申请人</option>
+      <option >入党积极分子</option>
+        <option>发展对象</option>
+      <option>预备党员</option>      
+      <option>党员</option>
+    </select>
+  </div>
+
+    <div class="form-group">   
+    <label>籍贯</label>
+    <input type="text" name="native" class=""value="{{.User.Native}}"> 
+  </div>
+
+
+    <div class="form-group">           
+    <label>民族</label>
+    <input type="text" name="nation" class="" value="{{.User.Nation}}">
+    </div>
+
+    <div class="form-group">   
+    <label>身份证号</label>
+    <input type="text" name="number" class="" value="{{.User.Number}}">
+  </div>
+
+    <div class="form-group">   
+       <label>学历</label>
+      <select name="education" class="" value="{{.User.Education}}">
+      <option></option>
+      <option >小学</option>
+      <option>初中</option>
+      <option>高中</option>
+      <option>本科</option>
+      <option>研究生</option>
+      <option>硕士</option>
+      <option>博士</option>
+      <option>博士后</option>
+      </select>
+  </div>
+
+      <div class="form-group">                      
+      <label>联系电话</label>
+      <input type="text" name="phone" class="" value="{{.User.Phone}}">
+    </div>
+    
+        <div class="form-group">                      
+      <label>邮箱</label>
+      <input type="email" name="email" class="" value="{{.User.Email}}">
+    </div>
+
+    <div class="form-group">   
+      <label>家庭住址</label>
+      <input type="text" name="address" class="" value="{{.User.Address}}">
+    </div>
+
+    <div class="form-group">   
+      <label>户口所在地</label>
+      <input type="text" name="resident" class="" value="{{.User.Resident}}">
+    </div>
+
+        <div class="form-group">   
+    <label>出生日期</label>
+    <input type="text" name="birthday" class="" value="{{.User.Birthday}}">
+  </div>
+       <div class="form-group">      
+      <label>入党时间</label>
+      <input type="text" name="jointime" class="" value="{{.User.Jointime}}">
+    </div>
+
+    <div class="form-group">              
+      <label>原工作单位</label>
+      <input type="text" name="company" class="" value="{{.User.Company}}">
+    </div>
+
+    <div class="form-group">                      
+      <label>党内职务</label>
+      <input type="text" name="position" class="" value="{{.User.Position}}">
+    </div>
+
+    <div class="form-group">   
+      <label>隶属党小组</label>
+      <input type="text" name="group" class="" value="{{.User.Group}}">
+    </div>
+
+    <div class="form-group">                
+      <label>隶属党支部</label>
+      <input type="text" name="branch" class="" value="{{.User.Branch}}">
+    </div>
+
+        <div class="form-group">   
+       <label>党员类别</label>
+     <!--  <select name="category" class="" value="{{.User.Category}}"> -->
+      <select name="category" class="">
+      {{range .Categories}}
+      <option>{{.Title}}</option>
+      {{end}}
+      <!-- <option >在职党员</option>
+      <option>离退休党员</option>
+      <option>过路党员</option>
+      <option>流动党员</option>
+      <option>非公经济企业</option>
+      <option>下岗职工党员</option> 
+      <option>春居民党员</option> -->
+    </select>
+  </div>
+
+    <div class="form-group">       
+     <label>培养联系人</label>
+      <input type="text" name="linkman" class="" value="{{.User.Linkman}}">
+    </div>
+
+    <div class="form-group">        
+      <label>入党介绍人</label>
+     <input type="text" name="introducer" class="" value="{{.User.Introducer}}">
+    </div>
+
+    <div class="form-group">         
+     <label>有何特长</label>
+    <input type="text" name="feature" class="" value="{{.User.Feature}}">
+    </div>
+
+    <div class="form-group">              
+    <label>备注</label>
+   <textarea  name="comment" cols="30" rows="10" class="form-control">{{.User.Comment}}</textarea>
+    </div>
+
+    <div class="form-group">       
+     <label>照片(<a href="/photo/{{.User.Photo}}">{{.User.Photo}}</a>)</label>
+     <input type="file" name="photo" class="">
+    </div>
+
+    <button type="submit" class="btn btn-default">添加</button>
+  </form>
+    </div>
+    </div>
+    </div>
+
+
+
+
+    
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+</body>
+</html>
+
+
+

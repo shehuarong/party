@@ -1,0 +1,92 @@
+{{template "header"}}
+    	<title>注册 - 社区党员信息管理系统</title>
+  	</head>
+	
+	<body>
+		<div class="container" style="width: 500px;">
+		<div class="row">
+		<div class="col-md-9">
+			<form class="form-horizontal" method="GET" action="/register">
+			  <div class="form-group">
+			    <label >昵称：</label>
+			    
+			      <input  type="text" class="form-control" name="nickname" placeholder="Enter Nickname">
+			    
+			  </div>
+
+	<!-- 		  	<div class="form-group">
+			    <label >Email：</label>
+			
+			      <input type="email" class="form-control" name="email" placeholder="Enter Email">
+			
+			  </div> -->
+
+			  <div class="form-group">
+			    <label >密码：</label>
+			
+			      <input  type="password" class="form-control" name="password" placeholder="Enter Password">
+		
+			  </div>
+
+			  	<div class="form-group">
+			    <label >确认密码：</label>
+
+		
+			      <input  type="password" class="form-control" name="password2" placeholder="Enter Password Again">
+	
+			  </div>
+
+
+
+			  <div class="form-group">
+		
+			    	<a href="/register"><button type="submit" class="btn btn-default" onclick="return checkInput();">注册</button></a>
+
+			      	<button class="btn btn-default" onclick="return backToHome();">返回</button>
+			  </div>	
+
+			 
+			   <div class="col-md-3">
+			      	<!--<h3><i class="glyphicon glyphicon-list-alt"></i>&nbsp;已经有帐号了？</h3>	-->	
+			      	<label>已经有帐号了?</label>
+					<li><a href="/login">登录</a></li>
+					<!--<li><a href="/account/forgetpasswd">忘记密码？</a></li>-->
+				</div>
+				</div>
+			
+
+
+			      	<script type="text/javascript">
+				      	function backToHome() {
+				      		window.location.href = "/";
+				      		return false;
+				      	}
+
+				      	function checkInput() {
+				      		var uname = document.getElementById("uname");
+				      		if (uname.value.length == 0) {
+				      			alert("请输入用户名");
+				      			return false;
+				      		}
+
+				      		// var email = document.getElementById("email");
+				      		// if (email.value.length == 0) {
+				      		// 	alert("请输入Email");
+				      		// 	return false;
+				      		// }
+
+				      		var pwd = document.getElementById("pwd");
+				      		if (pwd.value.length ) {
+				      			alert("请输入密码");
+				      			return false;
+				      		}
+				      	}
+			      	</script>
+				 </div>
+			  </div>
+			</form>
+
+		
+
+	</body>
+</html>
